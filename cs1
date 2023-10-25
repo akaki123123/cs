@@ -1,0 +1,199 @@
+
+// saxeli-age
+
+
+class Program 
+{
+    static void Main()
+    {
+        // pirveli amocana
+        int age = 21; 
+        string name = "akaki";
+
+        for (int i = 1; i <= 15; i++)
+        {
+            
+            Console.WriteLine(name + " " + i);
+        }
+
+
+        //meore amocanaaaaaaaa
+        
+        // Create an instance of the Person class
+        Person person = new Person(21, "akakii"); // Replace with actual age and name
+
+        // Call the Introduction method
+        person.Introduction();
+
+        // Wait for user input to exit
+        
+        
+
+
+        // mesame amocana
+        
+        Rectangle rectangle = new Rectangle(5.0, 4.0);
+        Circle circle = new Circle(3.0);
+
+        Console.WriteLine("Area of the rectangle: " + rectangle.Area);
+        Console.WriteLine("Area of the circle: " + circle.Area);
+        
+
+
+
+        //meotxe
+        
+        Vehicle car = new Car();
+        Vehicle bicycle = new Bicycle();
+
+        
+        car.StartEngine();
+
+        bicycle.StartEngine();
+
+        //mexute
+        MyList<int> myList = new MyList<int>(5);
+
+        myList.Add(8);
+        myList.Add(20);
+        myList.Add(30);
+        myList.Add(40);
+        myList.Add(50);
+
+        // Using the Get method to retrieve and print an element from the list
+        int indexToRetrieve = 2; // Change this to the desired index
+        try
+        {
+            int retrievedItem = myList.Get(indexToRetrieve);
+            Console.WriteLine($"Item at index {indexToRetrieve}: {retrievedItem}");
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+}
+//meore amocana class
+public class Person
+{
+    private int age;
+    public string Name { get; set; }
+
+    public Person(int age, string name)
+    {
+        this.age = age;
+        Name = name;
+    }
+
+    public void Introduction()
+    {
+        Console.WriteLine($"Hi, I'm {Name} and I'm {age} years old.");
+    }
+}
+
+// mesame amocana class
+
+public class Shape
+{
+    protected double area;
+
+    public double Area
+    {
+        get { return area; }
+    }
+}
+
+public class Rectangle : Shape
+{
+    private double _length;
+    private double _width;
+
+    public Rectangle(double length, double width)
+    {
+        this._length = length;
+        this._width = width;
+        CalculateArea();
+    }
+
+    private void CalculateArea()
+    {
+        area = _length * _width;
+    }
+}
+
+public class Circle : Shape
+{
+    private double radius;
+
+    public Circle(double radius)
+    {
+        this.radius = radius;
+        CalculateArea();
+    }
+
+    private void CalculateArea()
+    {
+        area = Math.PI * radius * radius;
+    }
+}
+
+
+//meotxe
+abstract class Vehicle
+{
+    public abstract void StartEngine();
+}
+
+class Car : Vehicle
+{
+    public override void StartEngine()
+    {
+        Console.WriteLine("Car engine started.");
+    }
+}
+
+class Bicycle : Vehicle
+{
+    public override void StartEngine()
+    {
+        Console.WriteLine("Pedaling the bicycle.");
+    }
+}
+
+//mexute
+class MyList<T>
+{
+    private T[] elements;
+    private int count;
+
+    public MyList(int raodenoba )
+    {
+        elements = new T[raodenoba];
+        count = 0;
+    }
+
+    public void Add(T item)
+    {
+        if (count < elements.Length)
+        {
+            elements[count] = item;
+            count++;
+        }
+        else
+        {
+            Console.WriteLine("veghar daamateb aghemateba ricxvs!");
+        }
+    }
+
+    public T Get(int index)
+    {
+        if (index >= 0 && index < count)
+        {
+            return elements[index];
+        }
+        else
+        {
+            throw new IndexOutOfRangeException("araa mocemuli indexi!");
+        }
+    }
+}
